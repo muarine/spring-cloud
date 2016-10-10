@@ -1,9 +1,17 @@
 /*
- * RT MAP, Home of Professional MAP
- * Copyright 2016 Bit Main Inc. and/or its affiliates and other contributors
- * as indicated by the @author tags. All rights reserved.
- * See the copyright.txt in the distribution for a
- * full listing of individual contributors.
+ * Copyright 2014-2016 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 package com.muarine.example;
@@ -11,7 +19,6 @@ package com.muarine.example;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
-import org.springframework.cloud.config.server.EnableConfigServer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
@@ -23,7 +30,6 @@ import org.springframework.web.client.RestTemplate;
  * @since 1.0
  */
 @SpringBootApplication
-@EnableConfigServer
 public class Application {
 
     @Bean
@@ -31,6 +37,7 @@ public class Application {
     RestTemplate restTemplate(){
         return new RestTemplate();
     }
+
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
