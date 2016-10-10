@@ -8,9 +8,11 @@
 
 package com.muarine.example;
 
+import com.muarine.example.service.HystrixService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
@@ -29,6 +31,7 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 @EnableDiscoveryClient
 @RestController
+@EnableCircuitBreaker
 public class Application {
 
     @Bean
@@ -37,15 +40,17 @@ public class Application {
         return new RestTemplate();
     }
 
+
     @Autowired
-    private RestTemplate restTemplate;
+    private HystrixService hystrixService;
 
     @RequestMapping(value = "/" , method = RequestMethod.GET)
     public String home() {
-        String s = restTemplate.getForEntity("http://COMPUTE-SERVICE/", String.class).getBody();
-        System.out.println("远程请求结果:" + s);
-        return s;
+        return hystrixService.computeService();
     }
+
+
+
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);

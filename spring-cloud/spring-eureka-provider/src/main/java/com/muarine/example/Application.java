@@ -28,9 +28,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class Application {
 
-    @RequestMapping("/")
-    public String home() {
-        return "Hello World";
+    @RequestMapping("/link")
+    public String home(String prefix , String suffix) {
+        return prefix + suffix;
     }
 
     public static void main(String[] args) {

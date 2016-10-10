@@ -1,0 +1,1 @@
+# 断路器 feign使用hystrix监控服务是否正常,因网络连接受阻后hystrix会切断服务连接,返回callback错误
