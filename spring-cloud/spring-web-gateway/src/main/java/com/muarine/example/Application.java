@@ -16,23 +16,34 @@
 
 package com.muarine.example;
 
+import com.muarine.example.filter.AccessTokenFilter;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.config.server.EnableConfigServer;
+import org.springframework.cloud.client.SpringCloudApplication;
+import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
+import org.springframework.context.annotation.Bean;
 
 /**
  * com.muarine.example.Application
+ *
+ * SpringCloudApplication 整合了 @SpringBootApplication、@EnableDiscoveryClient、@EnableCircuitBreaker，
  *
  * @author Muarine<maoyun@rtmap.com>
  * @date 16/7/11
  * @since 1.0
  */
-@SpringBootApplication
-@EnableConfigServer
+@EnableZuulProxy
+@SpringCloudApplication
 public class Application {
 
+    @Bean
+    public AccessTokenFilter accessTokenFilter(){
+        return new AccessTokenFilter();
+    }
+
     public static void main(String[] args) {
+
         SpringApplication.run(Application.class, args);
+
     }
 
 }

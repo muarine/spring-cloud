@@ -16,6 +16,8 @@ import org.springframework.web.client.RestTemplate;
 /**
  * com.muarine.example.service.HystrixService
  *
+ * 服务不可用时 消费方熔断机制
+ *
  * @author Muarine<maoyun0903@163.com>
  * @date 16/10/10
  * @since 1.0

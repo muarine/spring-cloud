@@ -17,8 +17,11 @@
 package com.muarine.example;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.config.server.EnableConfigServer;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * com.muarine.example.Application
@@ -27,9 +30,18 @@ import org.springframework.cloud.config.server.EnableConfigServer;
  * @date 16/7/11
  * @since 1.0
  */
-@SpringBootApplication
-@EnableConfigServer
+@Configuration
+@EnableAutoConfiguration
+@EnableEurekaClient
+@RestController
 public class Application {
+
+    @RequestMapping("/add")
+    public String home(String prefix , String suffix) {
+        String s = prefix + suffix;
+        System.out.println("service-B");
+        return s;
+    }
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);

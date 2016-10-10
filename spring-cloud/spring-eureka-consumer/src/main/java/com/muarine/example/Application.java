@@ -10,7 +10,8 @@ package com.muarine.example;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.config.server.EnableConfigServer;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 /**
  * com.muarine.example.Application
@@ -20,7 +21,8 @@ import org.springframework.cloud.config.server.EnableConfigServer;
  * @since 1.0
  */
 @SpringBootApplication
-@EnableConfigServer
+@EnableDiscoveryClient
+@EnableCircuitBreaker
 public class Application {
 
 
