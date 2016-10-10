@@ -23,7 +23,7 @@ public class HystrixServiceImpl implements HystrixService{
 
 
     @Override
-    public String add(@RequestParam("prefix") String prefix,@RequestParam("suffix") String suffix) {
+    public String add(@RequestParam(value = "prefix") String prefix,@RequestParam(value = "suffix") String suffix) {
         return "-9999";
     }
 }

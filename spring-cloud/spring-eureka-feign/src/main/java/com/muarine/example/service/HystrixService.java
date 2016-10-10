@@ -20,11 +20,11 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @date 16/10/10
  * @since 1.0
  */
-@FeignClient(value = "compute-service", fallback = HystrixServiceImpl.class)
+@FeignClient(name = "COMPUTE-SERVICE", fallback = HystrixServiceImpl.class)
 public interface HystrixService {
 
     @RequestMapping(method = RequestMethod.GET, value = "/add")
-    String add(@RequestParam("prefix") String prefix, @RequestParam("suffix") String suffix);
+    String add(@RequestParam(value = "prefix") String prefix, @RequestParam(value = "suffix") String suffix);
 
 
 }

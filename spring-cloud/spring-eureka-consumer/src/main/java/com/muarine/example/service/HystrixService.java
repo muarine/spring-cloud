@@ -29,7 +29,7 @@ public class HystrixService {
 
     @HystrixCommand(fallbackMethod = "computeServiceFailBack")
     public String computeService(){
-        return restTemplate.getForEntity("http://COMPUTE-SERVICE/link?prefix=AAA&suffix=BBB", String.class).getBody();
+        return restTemplate.getForEntity("http://COMPUTE-SERVICE/add?prefix=AAA&suffix=BBB", String.class).getBody();
     }
 
     public String computeServiceFailBack(){

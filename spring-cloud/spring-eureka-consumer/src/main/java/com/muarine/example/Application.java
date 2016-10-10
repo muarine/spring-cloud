@@ -8,18 +8,9 @@
 
 package com.muarine.example;
 
-import com.muarine.example.service.HystrixService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.client.loadbalancer.LoadBalanced;
-import org.springframework.context.annotation.Bean;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.cloud.config.server.EnableConfigServer;
 
 /**
  * com.muarine.example.Application
@@ -29,27 +20,8 @@ import org.springframework.web.client.RestTemplate;
  * @since 1.0
  */
 @SpringBootApplication
-@EnableDiscoveryClient
-@RestController
-@EnableCircuitBreaker
+@EnableConfigServer
 public class Application {
-
-    @Bean
-    @LoadBalanced
-    RestTemplate restTemplate(){
-        return new RestTemplate();
-    }
-
-
-    @Autowired
-    private HystrixService hystrixService;
-
-    @RequestMapping(value = "/" , method = RequestMethod.GET)
-    public String home() {
-        return hystrixService.computeService();
-    }
-
-
 
 
     public static void main(String[] args) {

@@ -37,7 +37,8 @@ public class IndexAction {
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String add() {
-        return hystrixService.add("prefix", "suffix");
+        String s = hystrixService.add("prefix", "suffix");
+        return s;
     }
 
 }
