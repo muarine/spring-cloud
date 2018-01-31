@@ -1,1 +1,0 @@
-# 集成ribbon(服务消费方)或Feign(服务消费和熔断) 对外开放Restful接口,
