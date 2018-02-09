@@ -15,7 +15,7 @@
         <module>ms-consumer-hello-ribbon-with-hystrix</module>
         <module>ms-consumer-hello-feign-with-hystrix</module>
         <module>ms-hystrix-dashboard</module>
-        <module>ms-consumer-movie-feign-with-hystrix-stream</module>
+        <module>ms-consumer-hello-feign-with-hystrix-stream</module>
         <module>ms-hystrix-turbine</module>
         <module>ms-config-server</module>
         <module>ms-config-client</module>
@@ -52,7 +52,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.4.0.RELEASE</version>
+        <version>1.5.9.RELEASE</version>
     </parent>
 
     <properties>
@@ -65,7 +65,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Brixton.SR5</version>
+                <version>Edgware.SR1</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
