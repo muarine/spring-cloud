@@ -2,7 +2,7 @@ server:
   port: 8010
 spring:
   application:
-    name: ms-consumer-hello-ribbon
+    name: ms-consumer-hello-ribbon-with-hystrix
 eureka:
   client:
     serviceUrl:

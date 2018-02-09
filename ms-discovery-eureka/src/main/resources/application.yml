@@ -5,6 +5,9 @@
 ---
 #spring:
 #  profiles: peer1                                 # 指定profile=peer1
+spring:
+  application:
+    name: ms-eureka
 server:
   port: 8761
 eureka:

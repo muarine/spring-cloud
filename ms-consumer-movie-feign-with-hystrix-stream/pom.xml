@@ -12,5 +12,13 @@
     <artifactId>ms-consumer-movie-feign-with-hystrix-stream</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
+    <dependencies>
 
+
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+    </dependencies>
 </project>
